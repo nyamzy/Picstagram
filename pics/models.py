@@ -15,6 +15,11 @@ class Location(models.Model):
     def delete_location(self):
         self.delete()
 
+    # Update location method
+    def update_location(self):
+        updated_location = Location.objects.filter().update()
+        return updated_location
+
 
 class Category(models.Model):
     category = models.CharField(max_length = 20)
