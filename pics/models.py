@@ -27,6 +27,10 @@ class Category(models.Model):
     def __str__(self):
         return self.category
 
+    # Save category method
+    def save_category(self):
+        self.save()
+
 
 class Image(models.Model):
     image = models.ImageField(upload_to = 'images/')
