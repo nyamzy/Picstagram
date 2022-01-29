@@ -6,8 +6,7 @@ class Location(models.Model):
 
 
 class Category(models.Model):
-    pass
-    # category = models.CharField(max_length = 20)
+    category = models.CharField(max_length = 20)
 
 
 class Image(models.Model):
