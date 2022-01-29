@@ -55,9 +55,10 @@ class CategoryTestClass(TestCase):
         categories = Category.objects.all()
         self.assertTrue(len(categories) < 1)
 
-    # # Testing the update method
-    # def test_update_method(self):
-    #     self.home.save_location()
-    #     self.home.update_location()
-    #     updated_location = Location.objects.filter(place = "Home").update(place = "Away")
-    #     self.assertTrue(self.home.place != updated_location)
+    # Testing the update method
+    def test_update_method(self):
+        self.travel.save_category()
+        self.travel.update_category()
+        updated_category = Category.objects.filter(category = "Travel").update(category = "Food")
+        self.assertTrue(self.travel.category != updated_category)
+        self.assertNotEqual(self.travel, updated_category)
