@@ -48,12 +48,12 @@ class CategoryTestClass(TestCase):
         categories = Category.objects.all()
         self.assertTrue(len(categories) > 0)
 
-    # # Testing the delete method
-    # def test_delete_method(self):
-    #     self.home.save_location()
-    #     self.home.delete_location()
-    #     locations = Location.objects.all()
-    #     self.assertTrue(len(locations) < 1)
+    # Testing the delete method
+    def test_delete_method(self):
+        self.travel.save_category()
+        self.travel.delete_category()
+        categories = Category.objects.all()
+        self.assertTrue(len(categories) < 1)
 
     # # Testing the update method
     # def test_update_method(self):
