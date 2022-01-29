@@ -10,11 +10,10 @@ class Category(models.Model):
 
 
 class Image(models.Model):
-    pass
-    # image = models.ImageField(upload_to = 'images/')
-    # image_name = models.CharField(max_length = 30)
-    # description = models.CharField(max_length = 100)
-    # image_location = models.ForeignKey(Location)
-    # image_category = models.ForeignKey(Category)
-    # post_date = models.DateTimeField(auto_now_add = True)
-    # url = models.URLField(max_length = 200)
+    image = models.ImageField(upload_to = 'images/')
+    image_name = models.CharField(max_length = 30)
+    description = models.CharField(max_length = 100)
+    image_location = models.ForeignKey(Location)
+    image_category = models.ForeignKey(Category)
+    post_date = models.DateTimeField(auto_now_add = True)
+    url = models.URLField(max_length = 200)
