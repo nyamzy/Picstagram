@@ -1,4 +1,5 @@
 {% load bootstrap3 %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +14,10 @@
 
     {% block styles %}
         {% bootstrap_css %}
+        <link rel="stylesheet" href="{% static 'css/picstyles.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Comforter&display=swap" rel="stylesheet">
     {% endblock %}
 </head>
 <body>
@@ -25,6 +30,18 @@
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         {% bootstrap_javascript %}
+        <script>
+            function copyToClipboard(value){
+                function handler(event){
+                    event.clipboardData.setData('text/plain',value);
+                    event.preventDefault();
+                    document.removeEventListener('copy',handler, true);
+                }
+                    document.addEventListener('copy', handler, true);
+                    document.execCommand('copy');
+                alert("URL Successfully Copied!");
+            }
+        </script>
     {% endblock %}
 </body>
 </html>
