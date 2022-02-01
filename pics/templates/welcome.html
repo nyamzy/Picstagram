@@ -3,4 +3,38 @@
 {% block content %}
 {{block.super}}
 
+<div class="container">
+    <div class="row">
+        <h1 class="text-center">Welcome to Picstagram</h1>
+    </div>
+    <br>
+    <br>
+    {% for image in image_list %}
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <a href="#" data-toggle="modal" data-target="#myModal{{image.id}}">
+            <img src="{{ image.image.url }}" alt="{{ image.image_name }}" class="img-responsive">
+        </a>
+    </div>
+    <div class="modal fade modal-xl" id="myModal{{image.id}}" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">{{ image.image_name }}</h5>
+                </div>
+                <div class="modal-body">
+                    <img src="{{ image.image.url }}" alt="{{ image.image_name }}" class="img-responsive">
+                    <p>{{ image.description }}</p>
+                    <p>Category: {{ image.image_category }}</p>
+                    <p>Location: {{ image.image_location }}</p>
+                    <p>Posted on {{ image.post_date }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-info" type="button" value="{{ image.image.url }}" onclick="copyToClipboard(this.value)">Copy Image Link</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
