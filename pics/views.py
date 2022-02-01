@@ -1,5 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import Image
 
 # Create your views here.
 def welcome(request):
-    return render(request, "welcome.html")
+    title = "Home"
+    image_list = Image.objects.all()
+    context = {
+        "title": title,
+        "image_list": image_list
+    }
+    return render(request, "welcome.html", context)
