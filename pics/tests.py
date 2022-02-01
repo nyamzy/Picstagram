@@ -1,3 +1,4 @@
+from unicodedata import category
 from django.test import TestCase
 from .models import Image, Location, Category
 
@@ -62,3 +63,29 @@ class CategoryTestClass(TestCase):
         updated_category = Category.objects.filter(category = "Travel").update(category = "Food")
         self.assertTrue(self.travel.category != updated_category)
         self.assertNotEqual(self.travel, updated_category)
+
+
+class ImageTestClass(TestCase):
+    # Set up method
+    def setUp(self):
+
+        # Creating a new location and saving it
+        self.nairobi = Location(place = "Nairobi")
+        self.nairobi.save_location()
+
+        # Creating a new category and saving it
+        self.cars = Category(category = "Cars")
+        self.cars.save_category()
+
+        # Creating an image instance and saving it
+        self.image1 = Image(image_name = "Lambo", description = "This is an image of a lambo", image_location = self.nairobi, image_category = self.cars)
+
+    # Testing instance
+    def test_instance(self):
+        self.assertTrue(isinstance(self.image1, Image))
+
+    # Testing the save method
+    def test_save_method(self):
+        self.image1.save_image()
+        images = Image.objects.all()
+        self.assertTrue(len(images) > 0)
