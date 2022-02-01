@@ -96,3 +96,11 @@ class ImageTestClass(TestCase):
         self.image1.delete_image()
         images = Image.objects.all()
         self.assertTrue(len(images)==0)
+
+    # Testing the update method 
+    def test_update_method(self):
+        self.image1.save_image()
+        self.image1.update_image()
+        updated_image = Image.objects.filter(image_name = "Lambo").update(image_name = "Lamborghini")
+        self.assertTrue(self.image1.image_name != updated_image)
+        self.assertNotEqual(self.image1, updated_image)
