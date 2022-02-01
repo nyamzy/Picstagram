@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% if pictures %}
+            <h2>Found <em>{{pictures|length}}</em> results of the searched term <em>{{message}}</em></h2>
+        {% else %}
+            <h2>Found 0 images for the searched term {{message}}</h2>
+        {% endif %}
+    </div>
+    <div class="row">
+        {% if pictures %}
+            {% for picture in pictures %}
+                <div class="col-md-10">
+                    <img src="{{ picture.image.url }}" alt="Image" class="img-responsive">
+                    <h2>{{picture.image_name}}</h2>
+                    <p>{{picture.description}}</p>
+                    <p>Location: {{picture.image_location}}</p>
+                    <p>Posted on {{picture.post_date}}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
