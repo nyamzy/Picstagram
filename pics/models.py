@@ -60,4 +60,8 @@ class Image(models.Model):
     # Delete image method
     def delete_image(self):
         self.delete()
-        
+
+    # Update image method
+    def update_image(self):
+        updated_image = Image.objects.filter().update()
+        return updated_image
