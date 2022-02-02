@@ -15,9 +15,9 @@
                 <div class="col-md-10">
                     <img src="{{ picture.image.url }}" alt="Image" class="img-responsive">
                     <h2>{{picture.image_name}}</h2>
-                    <p>{{picture.description}}</p>
-                    <p>Location: {{picture.image_location}}</p>
-                    <p>Posted on {{picture.post_date}}</p>
+                    <h4>{{picture.description}}</h4>
+                    <h4>Location: {{picture.image_location}}</h4>
+                    <h4>Posted on {{picture.post_date}}</h4>
                 </div>
             {% endfor %}
         {% endif %}
