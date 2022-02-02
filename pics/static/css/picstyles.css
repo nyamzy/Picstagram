@@ -1,5 +1,20 @@
 h1 {
-    color: #9a031e;
-    font-size: 10rem;
+    color: whitesmoke;
+    font-size: 15rem;
     font-family: 'Comforter', cursive;
 }
+
+h2 {
+    color: whitesmoke;
+}
+
+ h4 {
+     font-family: 'Quintessential', cursive;
+     color: whitesmoke;
+ }
+
+ body {
+     background-image: url("/static/images/ray-mallick-5J1bHRX1fNw-unsplash.jpg");
+     background-size: cover;
+     padding-bottom: 5rem;
+ }
